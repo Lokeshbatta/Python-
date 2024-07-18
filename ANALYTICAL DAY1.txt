@@ -1,0 +1,237 @@
+1.REVERSE A WORD USING LOOP
+def reverse_word():
+    word = input("Enter a word: ")
+    reversed_word = ""
+
+    for i in range(len(word) - 1, -1, -1):
+        reversed_word += word[i]
+
+    print("The reversed word is:", reversed_word)
+
+reverse_word()
+
+2.XN OPERATION:
+def calculate():
+    x = float(input("Enter the value of x: "))
+    n = float(input("Enter the value of n: "))
+
+    print("Choose an operation:")
+    print("1. Power (x^n)")
+    print("2. Addition (x + n)")
+    print("3. Subtraction (x - n)")
+    print("4. Multiplication (x * n)")
+    print("5. Division (x / n)")
+
+    choice = int(input("Enter your choice (1-5): "))
+
+    if choice == 1:
+        result = x ** n
+        print(f"The result of x^n is: {result}")
+    elif choice == 2:
+        result = x + n
+        print(f"The result of x + n is: {result}")
+    elif choice == 3:
+        result = x - n
+        print(f"The result of x - n is: {result}")
+    elif choice == 4:
+        result = x * n
+        print(f"The result of x * n is: {result}")
+    elif choice == 5:
+        if n != 0:
+            result = x / n
+            print(f"The result of x / n is: {result}")
+        else:
+            print("Error: Division by zero is not allowed")
+    else:
+        print("Invalid choice. Please choose a valid operation.")
+
+calculate()
+
+3.PRIME AND COMPOSITE NUMBER
+
+def count_prime_composite():
+    prime_count = 0
+    composite_count = 0
+
+    num_list = []
+    while True:
+        num = input("Enter a number (or 'stop' to finish): ")
+        if num.lower() == 'stop':
+            break
+        num_list.append(int(num))
+
+    for num in num_list:
+        if num <= 1:
+            composite_count += 1
+        else:
+            is_prime = True
+            for i in range(2, int(num ** 0.5) + 1):
+                if num % i == 0:
+                    is_prime = False
+                    break
+            if is_prime:
+                prime_count += 1
+            else:
+                composite_count += 1
+
+    print(f"Composite number: {composite_count}")
+    print(f"Prime number: {prime_count}")
+
+count_prime_composite()
+
+4.VALID NAME
+
+def check_username():
+    username1 = input("Enter the user name: ")
+    username2 = input("Reenter the user name: ")
+
+    if username1 == username2:
+        if len(username1) >= 8:
+            if any(char.isdigit() for char in username1) and any(char.isalpha() for char in username1):
+                print("User name is Valid")
+            else:
+                print("User name is Invalid")
+        else:
+            print("User name is Invalid")
+    else:
+        print("User name is Invalid")
+
+check_username()
+
+5.MTH MAXIMUM AND NTH MINIMUM
+
+def find_mth_maximum_and_nth_minimum(arr, m, n):
+    if m > len(arr) or n > len(arr):
+        return "M or N is larger than the array size."
+
+    # Sort the array
+    sorted_arr = sorted(arr)
+
+    # Find the Mth maximum (Mth from the end)
+    mth_max = sorted_arr[-m]
+
+    # Find the Nth minimum (Nth from the beginning)
+    nth_min = sorted_arr[n-1]
+
+    # Calculate the sum and difference
+    sum_result = mth_max + nth_min
+    difference_result = mth_max - nth_min
+
+    return {
+        "Mth Maximum": mth_max,
+        "Nth Minimum": nth_min,
+        "Sum": sum_result,
+        "Difference": difference_result
+    }
+
+# Example usage
+arr = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
+m = 2
+n = 3
+results = find_mth_maximum_and_nth_minimum(arr, m, n)
+print(results)
+
+6.REVERSE NUMBER USING LOOP
+
+def reverse_number(num):
+    reversed_num = 0
+    while num > 0:
+        digit = num % 10
+        reversed_num = reversed_num * 10 + digit
+        num = num // 10
+    return reversed_num
+
+# Example usage
+num = 12345
+reversed_num = reverse_number(num)
+print(f"The reversed number is: {reversed_num}")
+
+7.ELIGBILE FOR VOTE OR NOT
+
+def check_voting_eligibility():
+    age = int(input("Enter your age: "))
+    eligible_age = 18
+
+    if age >= eligible_age:
+        print("You are eligible to vote!")
+    else:
+        years_left = eligible_age - age
+        print(f"You are not eligible to vote. You need to wait {years_left} more years.")
+
+check_voting_eligibility()
+
+8.DENOMINATION
+
+def get_denomination_input(order):
+    denom = int(input(f"Enter the {order} Denomination: "))
+    num_notes = int(input(f"Enter the {order} Denomination number of notes: "))
+    return denom, num_notes
+
+def calculate_total_balance(denominations):
+    total = 0
+    for denom, num_notes in denominations:
+        total += denom * num_notes
+    return total
+
+def main():
+    orders = ["1st", "2nd", "3rd", "4th"]
+    denominations = []
+    
+    for order in orders:
+        denom, num_notes = get_denomination_input(order)
+        denominations.append((denom, num_notes))
+    
+    total_balance = calculate_total_balance(denominations)
+    print(f"The total available balance in the ATM is: {total_balance}")
+
+if __name__ == "__main__":
+    main()
+
+9.GIVEN NUMBER OR STRING PALINDROME OR NOT
+
+def check_palindrome():
+    print("Choose an option:")
+    print("1. Check if a string is a palindrome")
+    print("2. Check if a number is a palindrome")
+    choice = int(input("Enter your choice (1/2): "))
+
+    if choice == 1:
+        string = input("Enter a string: ")
+        if string == string[::-1]:
+            print("The string is a palindrome!")
+        else:
+            print("The string is not a palindrome.")
+    elif choice == 2:
+        num = int(input("Enter a number: "))
+        if str(num) == str(num)[::-1]:
+            print("The number is a palindrome!")
+        else:
+            print("The number is not a palindrome.")
+    else:
+        print("Invalid choice. Please try again!")
+
+check_palindrome()
+
+10.LCM AND GCD
+
+import math
+
+def find_lcm_gcd():
+    n = int(input("Enter the number of values (n): "))
+    numbers = []
+
+    for i in range(n):
+        num = int(input(f"Enter number {i+1}: "))
+        numbers.append(num)
+
+    lcm = numbers[0]
+    gcd = numbers[0]
+
+    for num in numbers[1:]:
+        lcm = lcm * num // math.gcd(lcm, num)
+        gcd = math.gcd(gcd, num)
+
+    print(f"The LCM of the numbers is: {lcm}")
+    print(f"The GCD of the numbers is: {gcd}")
+
+find_lcm_gcd()
