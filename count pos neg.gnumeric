@@ -1,0 +1,19 @@
+p_sum = p_count = n_sum = n_count = 0
+print("Enter -1 to exit...")
+
+while True:
+    num = float(input("Enter the number: "))
+    if num == -1:
+        break
+    elif num > 0:
+        p_sum += num
+        p_count += 1
+    elif num < 0:
+        n_sum += num
+        n_count += 1
+
+p_avg = p_sum / p_count if p_count > 0 else 0
+n_avg = n_sum / n_count if n_count > 0 else 0
+
+print(f"The average of negative numbers is: {n_avg}")
+print(f"The average of positive numbers is: {p_avg}")

@@ -1,0 +1,6 @@
+a="@3456hse"
+b="@3456hse"
+if a==b:
+   print("true")
+else:
+   print("false")
